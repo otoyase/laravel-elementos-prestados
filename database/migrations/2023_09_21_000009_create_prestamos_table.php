@@ -17,10 +17,10 @@ return new class extends Migration
             $table->foreign('prestatario_id')->references('id')->on('users');
             $table->unsignedBigInteger('prestamista_id');
             $table->foreign('prestamista_id')->references('id')->on('users');
-            $table->unsignedBigInteger('elemento_id');
-            $table->foreign('elemento_id')->references('id')->on('elementos');
+            $table->unsignedBigInteger('elemento_prestado_id');
+            $table->foreign('elemento_prestado_id')->references('id')->on('elementos');
             $table->dateTime('fecha_hora_prestamo');
-            $table->dateTime('fecha_hora_devolucion');
+            $table->dateTime('fecha_hora_devolucion')->nullable();
             $table->unsignedBigInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->timestamps();

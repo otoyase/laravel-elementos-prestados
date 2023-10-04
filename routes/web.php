@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ElementoController;
+use App\Http\Controllers\PrestamoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/prestamos', [PrestamoController::class, 'index']);
+Route::get('/prestamos/crear', [PrestamoController::class, 'crearPrestamo']);
+Route::post('/prestamos', [PrestamoController::class, 'guardarPrestamo']);
+Route::patch('/prestamos/{id}/finalizar', [PrestamoController::class, 'finalizarPrestamo']);
+
+Route::get('/elementos', [ElementoController::class, 'index']);
+Route::get('/elementos/crear', [ElementoController::class, 'crearElemento']);
+Route::post('/elementos', [ElementoController::class, 'guardarElemento']);

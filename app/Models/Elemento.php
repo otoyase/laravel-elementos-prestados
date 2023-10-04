@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Elemento extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'tipo_elemento_id',
+        'numero_serie',
+        'observaciones',
+        'estado_id',
+    ];
 }
