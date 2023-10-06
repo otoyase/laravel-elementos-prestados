@@ -1,45 +1,48 @@
 @extends('layouts.plantilla')
 
-@section('scripts')
-    <script src="{{ asset('assets/js/tablas.js') }}"></script>
-@endsection
-
 @section('contenido')
-    <div class="d-flex align-items-center justify-content-center">
+    <div class="row">
+        <div class="col-12 col-md-4">
+
+            <div class="input-group">
+                <span class="input-group-text bg-primary text-white border-1 border-black">Nombres</span>
+                <input type="text" class="form-control border-1 border-black" value="{{ $usuario->nombres }}" readonly>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-4">
+
+            <div class="input-group">
+                <span class="input-group-text bg-primary text-white border-1 border-black">Numero de Documento</span>
+                <input type="text" class="form-control border-1 border-black" value="{{ $usuario->numero_documento }}" readonly>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-4">
+
+            <div class="input-group">
+                <span class="input-group-text bg-primary text-white border-1 border-black">Correo Electronico</span>
+                <input type="text" class="form-control border-1 border-black" value="{{ $usuario->email }}" readonly>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center mt-2 mb-2">
         <hr class="bg-verde w-25 me-3">
-        <p class="fw-bold fs-4 m-0 text-center">PRESTAMOS</p>
+        <p class="fw-bold m-0">Historial de Prestamos</p>
         <hr class="bg-verde w-25 ms-3">
     </div>
 
     <div class="row">
 
-        <div class="col-12 col-md-4">
-            <div class="input-group">
-                <span class="input-group-text bg-secondary text-white border-1 border-black">Buscar</span>
-                <input type="text" class="form-control border-1 border-black" placeholder="..." id="inpBusqueda">
-            </div>
-        </div>
+        <div class="col-12">
 
-        <div class="col-12 col-md-8">
-
-            <a class="btn btn-primary w-100" href="/prestamos/crear">Crear Prestamo</a>
-
-        </div>
-
-    </div>
-
-    <hr>
-
-    <div class="row">
-
-        <div class="col-12 col-md-12">
-
-            <table class="table table-striped border border-2 border-dark" id="tabla">
+            <table class="table table-striped border border-1 border-dark m-1" id="tabla">
 
                 <thead>
                     <tr>
                         <th class="text-center">ID</th>
-                        <th class="text-center">Prestatario</th>
                         <th class="text-center">Prestamista</th>
                         <th class="text-center">Elemento Prestado</th>
                         <th class="text-center">Numero Serie Elemento</th>
@@ -54,7 +57,6 @@
                         <tr>
 
                             <td class="text-center align-middle"> {{ $prestamo->id }}</td>
-                            <td class="text-center align-middle"> {{ $prestamo->prestatario }}</td>
                             <td class="text-center align-middle"> {{ $prestamo->prestamista }}</td>
                             <td class="text-center align-middle"> {{ $prestamo->elemento_prestado }}</td>
                             <td class="text-center align-middle"> {{ $prestamo->numero_serie_elemento }}</td>
@@ -91,7 +93,7 @@
                                             @method('PATCH')
                                             @csrf
                                             <div class="col-12"><button type="submit"
-                                                    class="btn btn-success w-100">Finalizar
+                                                    class="btn btn-sm btn-success">Finalizar
                                                     Prestamo</button></div>
                                         </form>
                                     @else
@@ -106,6 +108,7 @@
                 </tbody>
 
             </table>
+
 
         </div>
 
